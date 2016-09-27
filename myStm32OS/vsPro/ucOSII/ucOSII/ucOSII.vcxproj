@@ -123,6 +123,7 @@
     <ClCompile Include="..\..\..\BSP\bsp.c" />
     <ClCompile Include="..\..\..\BSP\bsp_int.c" />
     <ClCompile Include="..\..\..\TFT\LCD_driver.c" />
+    <ClCompile Include="..\..\..\Touch\touch.c" />
     <ClCompile Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_c.c" />
     <ClCompile Include="..\..\..\uC-LIB\lib_mem.c" />
     <ClCompile Include="..\..\..\uC-LIB\lib_str.c" />
@@ -154,6 +155,7 @@
     <ClInclude Include="..\..\..\TFT\chinese.h" />
     <ClInclude Include="..\..\..\TFT\LCD_driver.h" />
     <ClInclude Include="..\..\..\TFT\picture.h" />
+    <ClInclude Include="..\..\..\Touch\touch.h" />
     <ClInclude Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu.h" />
     <ClInclude Include="..\..\..\uC-CPU\cpu_def.h" />
     <ClInclude Include="..\..\..\uC-LIB\lib_def.h" />

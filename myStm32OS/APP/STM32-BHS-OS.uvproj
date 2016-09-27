@@ -752,6 +752,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>Touch</GroupName>
+          <Files>
+            <File>
+              <FileName>touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Touch\touch.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
     <Target>
@@ -1443,6 +1453,16 @@
               <FileName>LCD_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TFT\LCD_driver.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Touch</GroupName>
+          <Files>
+            <File>
+              <FileName>touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Touch\touch.c</FilePath>
             </File>
           </Files>
         </Group>

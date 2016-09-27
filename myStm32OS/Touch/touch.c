@@ -2,7 +2,6 @@
 #include "stm32f10x_lib.h"
 #include "touch.h"
 
-extern GPIO_InitTypeDef GPIO_InitStructure;
 
 static void Delay(vu32 nCount)
 {

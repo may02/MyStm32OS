@@ -38,6 +38,9 @@
     <Filter Include="TFT">
       <UniqueIdentifier>{ab13d52b-6a6d-46f9-ba6f-6d9fed65804d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Touch">
+      <UniqueIdentifier>{9d178151-ec1b-4368-97c4-4f161f08d484}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\APP\app.c">
@@ -99,6 +102,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\TFT\LCD_driver.c">
       <Filter>TFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Touch\touch.c">
+      <Filter>Touch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\TFT\picture.h">
       <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Touch\touch.h">
+      <Filter>Touch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
