@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="APP">
+      <UniqueIdentifier>{31bab933-bda8-41b9-8c78-02f8a2692873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BSP">
+      <UniqueIdentifier>{ffddac2a-edb3-4aa3-8341-3e6efc45b8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uC-CPU">
+      <UniqueIdentifier>{69d45698-ea73-4f1c-be39-ea2e0bf9c0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uC-CPU\ARM-Cortex-M3">
+      <UniqueIdentifier>{e108d9f7-7a51-4fd3-a403-ff9b0ae9c3db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uC-LIB">
+      <UniqueIdentifier>{3990588c-464b-4cf6-9da8-e54a587880ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uC-LIB\Ports">
+      <UniqueIdentifier>{10ac88f4-c9f3-40f6-813c-bc0d1ef27747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCOS-II">
+      <UniqueIdentifier>{361c274b-5025-41c3-9b0a-c6f5cd74d5fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCOS-II\Ports">
+      <UniqueIdentifier>{c10f30c3-1c9a-4d28-b445-06d73e7f6db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCOS-II\Source">
+      <UniqueIdentifier>{d96f49ef-ba90-448d-bda8-6b075c6d5745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="usart">
+      <UniqueIdentifier>{bfe7f36e-d9df-4e20-a2dd-b4339e29548d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TFT">
+      <UniqueIdentifier>{ab13d52b-6a6d-46f9-ba6f-6d9fed65804d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\APP\app.c">
+      <Filter>APP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BSP\bsp.c">
+      <Filter>BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BSP\bsp_int.c">
+      <Filter>BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\usart\Com.c">
+      <Filter>usart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_core.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_flag.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mbox.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mem.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mutex.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_q.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_sem.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_task.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_time.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_tmr.c">
+      <Filter>uCOS-II\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Ports\os_cpu_c.c">
+      <Filter>uCOS-II\Ports</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-II\Ports\os_dbg.c">
+      <Filter>uCOS-II\Ports</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uC-LIB\lib_mem.c">
+      <Filter>uC-LIB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uC-LIB\lib_str.c">
+      <Filter>uC-LIB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_c.c">
+      <Filter>uC-CPU\ARM-Cortex-M3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\TFT\LCD_driver.c">
+      <Filter>TFT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\APP\app_cfg.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\BinType.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\config.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\includes.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\MyType.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\os_cfg.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\STM32_Reg.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\stm32f10x_conf.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BSP\bsp.h">
+      <Filter>BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\usart\COM.H">
+      <Filter>usart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCOS-II\Source\ucos_ii.h">
+      <Filter>uCOS-II\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCOS-II\Ports\os_cpu.h">
+      <Filter>uCOS-II\Ports</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uC-LIB\lib_def.h">
+      <Filter>uC-LIB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uC-LIB\lib_mem.h">
+      <Filter>uC-LIB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uC-LIB\lib_str.h">
+      <Filter>uC-LIB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu.h">
+      <Filter>uC-CPU\ARM-Cortex-M3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uC-CPU\cpu_def.h">
+      <Filter>uC-CPU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TFT\char.h">
+      <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TFT\chinese.h">
+      <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TFT\LCD_driver.h">
+      <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TFT\picture.h">
+      <Filter>TFT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\APP\vectors.s">
+      <Filter>APP</Filter>
+    </None>
+    <None Include="..\..\..\BSP\init.s">
+      <Filter>BSP</Filter>
+    </None>
+    <None Include="..\..\..\uCOS-II\Ports\os_cpu_a.asm">
+      <Filter>uCOS-II\Ports</Filter>
+    </None>
+    <None Include="..\..\..\uC-LIB\Ports\lib_mem_a.asm">
+      <Filter>uC-LIB\Ports</Filter>
+    </None>
+    <None Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_a.asm">
+      <Filter>uC-CPU\ARM-Cortex-M3</Filter>
+    </None>
+  </ItemGroup>
+</Project>
