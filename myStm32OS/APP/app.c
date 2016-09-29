@@ -221,15 +221,15 @@ static  void App_TaskTouch(void* p_arg)
 	TchScr_Ymax = 3842, TchScr_Ymin = 38;//触摸屏返回电压值范围
 
 	(void)p_arg;
-	AD7843(CMD_RDX);
-	AD7843(CMD_RDY);
+	//AD7843(CMD_RDX);
+	//AD7843(CMD_RDY);
 
 	while (1)
 	{
 		//触摸产生
 		if (IS_TOUCHED)
 		{
-			Read_ADS2(&X_Addata, &Y_Addata);
+			XPT2046_ReadEx(&X_Addata, &Y_Addata);
 
 			printf("touch sampling X-Y: %d - %d \r\n", X_Addata,Y_Addata);
 			

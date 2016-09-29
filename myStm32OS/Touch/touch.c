@@ -2,14 +2,19 @@
 #include "stm32f10x_lib.h"
 #include "touch.h"
 
+/**
+* 自定义延时,不用ucOS 的延时,防止任务切换
+*/
 
 static void Delay(vu32 nCount)
 {
 	for (; nCount != 0; nCount--);
 }
 
-//**********************************************************
-void spistar()                                     //SPI开始
+/**
+ * 模拟spi 开始
+*/
+static void SpiStart()                                     
 {
 	DCLK(0);
 	Delay(100);
@@ -23,10 +28,22 @@ void spistar()                                     //SPI开始
 	Delay(150); 
 
 }
-//**********************************************************
-void WriteCharTo7843(unsigned char num)          //SPI写数据
+
+static void SpiStop()
 {
-	unsigned char count=0;
+	/**
+	 * 关闭片选,降低功耗
+	*/
+	CS(1);
+	Delay(150);
+}
+
+/**
+ * SPI 向 XTP2046 发送数据
+*/
+static void WriteCharToXTP2046(u8 num)
+{
+	u8 count=0;
 	DCLK(0);
 	for(count=0;count<8;count++)
 	{
@@ -37,11 +54,14 @@ void WriteCharTo7843(unsigned char num)          //SPI写数据
 		DCLK(1); Delay(150);
 	}
 }
-//**********************************************************
-unsigned int ReadFromCharFrom7843()             //SPI 读数据
+
+/**
+ * SPI 从 XTP2046 读出数据
+*/
+static u16 ReadFromCharFromXTP2046()
 {
-	unsigned char count=0;
-	unsigned int Num=0;
+	u8 count=0;
+	u16 Num=0;
 	
 	for(count=0;count<12;count++)
 	{
@@ -49,13 +69,21 @@ unsigned int ReadFromCharFrom7843()             //SPI 读数据
 		DCLK(1); Delay(150);                //下降沿有效
 		DCLK(0); Delay(150);
 
-		if(IS_DOUTOK) Num++;
+		if (IS_DOUT_H)
+		{
+			Num |= 0x01;
+		}
+		else
+		{
+			Num |= 0x00;
+		}
+		
 	}
 
 	return(Num);
 }
 
-
+#if 0
 void inttostr(int dd, char *str)
 {
 	str[0]=dd/10000+48;	    //个位  48的意思是，触摸IC是12位的AD， 加48是向高位移4位，取高12位的数据
@@ -65,36 +93,52 @@ void inttostr(int dd, char *str)
 	str[4]=dd-((dd/10)*10)+48; //万位
 	str[5]=0;
 }
-u16 AD7843(u8 CMD)              //外部中断0 用来接受键盘发来的数据
+#endif
+
+/**
+* 名    称：u16 XPT2046_GetData(u8 CMD) 
+* 功    能：读取触摸电压值(以差分方式)
+* 入口参数：指定读取X,或Y 的值(读x 发送CMD_RDX ，读y 发送CMD_RDY)
+* 出口参数：读到的值
+* 说    明：
+* 调用方法：无
+*/
+static u16 XPT2046_GetData(u8 CMD)              
 {
 	u16 AD_Data;
+	
 	//delayms(1);                     //中断后延时以消除抖动，使得采样数据更准确
-	spistar();                       //启动SPI
+	
+	SpiStart();                       //启动SPI
 	//while(BUSY);                //如果BUSY信号不好使可以删除不用
 	//delayms(1);
-	WriteCharTo7843(CMD);        //送控制字 10010000 即用差分方式读X坐标 详细请见有关资料
+
+	WriteCharToXTP2046(CMD);        
+	
 	//while(BUSY);               //如果BUSY信号不好使可以删除不用
 	//delayms(1);
+
 	DCLK(1); Delay(200);
 	DCLK(0); Delay(200);
-	AD_Data =ReadFromCharFrom7843();
-	//WriteCharTo7843(0xD0);       //送控制字 11010000 即用差分方式读Y坐标 详细请见有关资料
-	//DCLK=1; _nop_();_nop_();_nop_();_nop_();
-	//DCLK=0; _nop_();_nop_();_nop_();_nop_();
-	//TP_X=ReadFromCharFrom7843();
-		Delay(150); 
+	AD_Data = ReadFromCharFromXTP2046();
+
 	Delay(150); 
-	CS(1);
+
+	SpiStop();
 
 	return  AD_Data	;
 }
 
 
-//读取一个坐标值
-//连续读取READ_TIMES次数据,对这些数据升序排列,
-//然后去掉最低和最高LOST_VAL个数,取平均值 
-
-unsigned int ADS_Read_XY(u8 xy)
+/**
+* 名    称：u16 XPT2046_ReadXY(u8 xy)
+* 功    能：读取电压坐标值, 取平均值
+* 入口参数：指定读取X,或Y 的值(读x 发送CMD_RDX ，读y 发送CMD_RDY)
+* 出口参数：读到的值
+* 说    明：
+* 调用方法：无
+*/
+static u16 XPT2046_ReadXY(u8 xy)
 {
 	u16  i, j;
 	u16  buf[READ_TIMES];
@@ -102,7 +146,7 @@ unsigned int ADS_Read_XY(u8 xy)
 	u16 temp;
 	for(i=0;i<READ_TIMES;i++)
 	{				 
-	  	buf[i]=AD7843(xy);	    
+	  	buf[i]= XPT2046_GetData(xy);
 	}				    
 	for(i=0;i<READ_TIMES-1; i++)//排序
 	{
@@ -123,38 +167,52 @@ unsigned int ADS_Read_XY(u8 xy)
 } 
 
 
-//2次读取ADS7846,连续读取2次有效的AD值,且这两次的偏差不能超过
-//50,满足条件,则认为读数正确,否则读数错误.	   
-//该函数能大大提高准确度
-
-unsigned char Read_ADS2(u16 *x,u16 *y) 
+/**
+* 名    称：unsigned char XPT2046_Read(unsigned int * pX, unsigned int * pY)
+* 功    能：带滤波的坐标读取,最小值不能少于100
+* 入口参数：输出x ,y 电压值地址
+* 出口参数：成功返回1
+* 说    明：
+* 调用方法：无
+*/
+unsigned char XPT2046_Read(unsigned int * pX, unsigned int * pY)
 {
-    u16  x1,y1;
-    u16  x2,y2;
-    u8  flag;    
-    flag=Read_ADS(&x1,&y1);   
-    if(flag==0)return(0);
-    flag=Read_ADS(&x2,&y2);	   
-    if(flag==0)return(0);   
-    if(((x2<=x1&&x1<x2+ERR_RANGE)||(x1<=x2&&x2<x1+ERR_RANGE))//前后两次采样在+-50内
-    &&((y2<=y1&&y1<y2+ERR_RANGE)||(y1<=y2&&y2<y1+ERR_RANGE)))
-    {
-        *x=(x1+x2)/2;
-        *y=(y1+y2)/2;
-        return 1;
-    }else return 0;	  
-} 
+	u16  xtemp, ytemp;
+	xtemp = XPT2046_ReadXY(CMD_RDX);
+	ytemp = XPT2046_ReadXY(CMD_RDY);
+	if (xtemp<100 || ytemp<100)return 0;//读数失败
+	*pX = xtemp;
+	*pY = ytemp;
+	return 1;//读数成功;
+}
 
-
-//带滤波的坐标读取
-//最小值不能少于100.
-unsigned char Read_ADS(u16 *x,u16 *y)
+/**
+* 名    称：unsigned char XPT2046_ReadEx(unsigned int * pX, unsigned int * pY)
+* 功    能：带滤波的坐标读取,最小值不能少于100,连读取两次,误差小于50视为有效
+* 入口参数：输出x ,y 电压值地址
+* 出口参数：成功返回1
+* 说    明：
+* 调用方法：无
+*/
+unsigned char XPT2046_ReadEx(unsigned int * pX, unsigned int * pY)
 {
-	u16  xtemp,ytemp;			 	 		  
-	xtemp=ADS_Read_XY(CMD_RDX);
-	ytemp=ADS_Read_XY(CMD_RDY);	  												   
-	if(xtemp<100||ytemp<100)return 0;//读数失败
-	*x=xtemp;
-	*y=ytemp;
-	return 1;//读数成功
+	u16  x1, y1;
+	u16  x2, y2;
+	
+	//1. 读第一次
+	if (!XPT2046_Read(&x1, &y1)) return 0;
+
+	//2. 读第二次
+	if (!XPT2046_Read(&x2, &y2)) return 0;
+		
+	if (((x2 <= x1&&x1<x2 + ERR_RANGE) || (x1 <= x2&&x2<x1 + ERR_RANGE))//前后两次采样在+-50内
+		&& ((y2 <= y1&&y1<y2 + ERR_RANGE) || (y1 <= y2&&y2<y1 + ERR_RANGE)))
+	{
+		*pX = (x1 + x2) / 2;
+		*pY = (y1 + y2) / 2;
+		return 1;
+	}
+	else 
+		return 0;
+
 }

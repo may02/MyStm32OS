@@ -19,8 +19,8 @@
 #define    DOUT(x)   x ? GPIO_SetBits(GPIOB, DOUT_PIN) :   GPIO_ResetBits(GPIOB, DOUT_PIN)
 #define    IRQ(x)    x ? GPIO_SetBits(GPIOB,  IRQ_PIN) :   GPIO_ResetBits(GPIOB, IRQ_PIN)
 
-#define    IS_TOUCHED  (!GPIO_ReadInputDataBit(GPIOB, IRQ_PIN))
-#define    IS_DOUTOK   (GPIO_ReadInputDataBit(GPIOB,DOUT_PIN))
+#define    IS_TOUCHED     (!GPIO_ReadInputDataBit(GPIOB, IRQ_PIN))
+#define    IS_DOUT_H      (GPIO_ReadInputDataBit(GPIOB,DOUT_PIN))
 
 // A/D 通道选择命令字和工作寄存器
 #define	CMD_RDX 	0xD0
@@ -29,26 +29,34 @@
 #define LOST_VAL    2    //丢弃值
 #define ERR_RANGE 50 //误差范围 
 
-#define LCDWIDTH		320
-#define LCDHEIGHT		480
 
 
+//u16 XPT2046_GetData(u8 CMD) ;
 
-
- static void Delay(vu32 nCount);
- extern u16 AD7843(u8 CMD) ;
  void inttostr(int dd, char *str);
- unsigned int ReadFromCharFrom7843(void);
- void WriteCharTo7843(unsigned char num) ;
- void spistar(void);
 
+ //unsigned int ReadFromCharFrom7843(void);
+ //void WriteCharTo7843(unsigned char num) ;
 
 
 //连续读取READ_TIMES次数据,对这些数据升序排列,
 //然后去掉最低和最高LOST_VAL个数,取平均值 
 //unsigned int ADS_Read_AD(u8 CMD);
-unsigned int ADS_Read_XY(u8 xy);//
-unsigned char Read_ADS(u16 *x,u16 *y);////最小值不能少于100.
+
+//unsigned int ADS_Read_XY(u8 xy);//
+
+static u16 XPT2046_ReadXY(u8);
+
+
+/**
+ * 对外部接口
+*/
+unsigned char XPT2046_Read(unsigned int * pX, unsigned int * pY);
+
+unsigned char XPT2046_ReadEx(unsigned int * pX, unsigned int * pY);
+
+//unsigned char Read_ADS(u16 *x,u16 *y);////最小值不能少于100.
+
 unsigned char Read_ADS2(u16 *x,u16 *y);//2次读取ADS7846,连续读取2次有效的AD值,且这两次的偏差不能超过ERR_RANGE
 
 
