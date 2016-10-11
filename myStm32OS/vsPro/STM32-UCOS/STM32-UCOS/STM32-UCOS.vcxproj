@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3404BD60-8FA4-4A5B-92F6-CF070222CBC7}</ProjectGuid>
+    <RootNamespace>STM32UCOS</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\APP\app.c" />
+    <ClCompile Include="..\..\..\BSP\bsp.c" />
+    <ClCompile Include="..\..\..\BSP\bsp_int.c" />
+    <ClCompile Include="..\..\..\TFT\LCD_driver.c" />
+    <ClCompile Include="..\..\..\Touch\touch.c" />
+    <ClCompile Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_c.c" />
+    <ClCompile Include="..\..\..\uC-LIB\lib_mem.c" />
+    <ClCompile Include="..\..\..\uC-LIB\lib_str.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Ports\os_cpu_c.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Ports\os_dbg.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_core.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_flag.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mbox.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mem.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_mutex.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_q.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_sem.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_task.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_time.c" />
+    <ClCompile Include="..\..\..\uCOS-II\Source\os_tmr.c" />
+    <ClCompile Include="..\..\..\usart\Com.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\APP\app_cfg.h" />
+    <ClInclude Include="..\..\..\APP\BinType.h" />
+    <ClInclude Include="..\..\..\APP\config.h" />
+    <ClInclude Include="..\..\..\APP\includes.h" />
+    <ClInclude Include="..\..\..\APP\MyType.h" />
+    <ClInclude Include="..\..\..\APP\os_cfg.h" />
+    <ClInclude Include="..\..\..\APP\STM32_Reg.h" />
+    <ClInclude Include="..\..\..\BSP\bsp.h" />
+    <ClInclude Include="..\..\..\TFT\char.h" />
+    <ClInclude Include="..\..\..\TFT\chinese.h" />
+    <ClInclude Include="..\..\..\TFT\LCD_driver.h" />
+    <ClInclude Include="..\..\..\TFT\picture.h" />
+    <ClInclude Include="..\..\..\Touch\touch.h" />
+    <ClInclude Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu.h" />
+    <ClInclude Include="..\..\..\uC-CPU\cpu_def.h" />
+    <ClInclude Include="..\..\..\uC-LIB\lib_def.h" />
+    <ClInclude Include="..\..\..\uC-LIB\lib_mem.h" />
+    <ClInclude Include="..\..\..\uC-LIB\lib_str.h" />
+    <ClInclude Include="..\..\..\uCOS-II\Ports\os_cpu.h" />
+    <ClInclude Include="..\..\..\uCOS-II\Source\ucos_ii.h" />
+    <ClInclude Include="..\..\..\usart\COM.H" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\BSP\init.s" />
+    <None Include="..\..\..\BSP\STM32_Flash.scat" />
+    <None Include="..\..\..\BSP\vectors.s" />
+    <None Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_a.asm" />
+    <None Include="..\..\..\uC-LIB\Ports\lib_mem_a.asm" />
+    <None Include="..\..\..\uCOS-II\Ports\os_cpu_a.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
