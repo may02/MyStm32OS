@@ -62,7 +62,15 @@
 
 #include  "..\BSP\bsp.h"
 
+#ifdef UC_GUI_SURRPORT
+
+#include "../GUIinc/GUI.h"
+#include "../uCGUIDemo/GUIDEMO.h"
+#else
+
 #include "../TFT/LCD_driver.h"
+#endif//UC_GUI_SURRPORT
+
 #include "../Touch/touch.h"
 
 #endif

@@ -25,17 +25,19 @@
  *	 3.增加触摸功能
  *
 ***************/
+//#include  "stm32f10x_conf.h"
 
-
+#include  "../BSP/bsp.h"
+#include  "stm32f10x_conf.h"
 #include "../APP/includes.h"
-                                
-
+//#include "stm32f10x_it.h"                                
+#if 1
 static  OS_STK AppTaskStartStk[APP_TASK_START_STK_SIZE]; //主任务堆栈
 
 static  OS_STK AppTaskLcdStk[APP_TASK_LCD_STK_SIZE];     //LCD 显示任务堆栈
 
 static  OS_STK AppTaskTouchStk[APP_TASK_TOUCH_STK_SIZE]; //触摸任务堆栈
-
+#endif
 
 //static  OS_STK App_TaskJoystickStk[APP_TASK_Joystick_STK_SIZE];
 
@@ -43,7 +45,7 @@ static  OS_STK AppTaskTouchStk[APP_TASK_TOUCH_STK_SIZE]; //触摸任务堆栈
 //static  OS_EVENT* Disp_Box;                  
 //static  char* dp;
 
-
+#if 1
 static  void App_TaskCreate(void);
 
 static  void App_DispScr_SignOn(void);
@@ -53,7 +55,7 @@ static  void App_TaskStart(void* p_arg);
 static  void App_TaskLCD(void* p_arg);  //LCD 显示任务
 
 static  void App_TaskTouch(void* p_arg);//touch 任务
-
+#endif
 
 //static  void App_TaskJoystick(void* p_arg);
 
@@ -64,24 +66,33 @@ int main(void)
 
 	//BSP_IntDisAll(); /* Disable all ints until we are ready to accept them.  */
 	//1.关中断
-	CPU_IntDis();
+	//CPU_IntDis();
    
 	//2.OS初始化
-	OSInit();  
+	//OSInit();  
 
 	//3.板卡初始化
 	BSP_Init(); 
     
 	//4.初始化ucosII时钟节拍
-	OS_CPU_SysTickInit();  
-
+	//OS_CPU_SysTickInit();  
+#if 1
 #if (OS_TASK_STAT_EN > 0)
 	OSStatInit();    /* Determine CPU capacity.*/
 #endif
 
+	//ucGUI 支持
+#ifdef UC_GUI_SURRPORT
+
+	//5.初始化GUI
+	GUI_Init();	
+#else
+
 	//5.初始化LCD
 	LCD_Init();
-   
+
+#endif //UC_GUI_SURRPORT
+
 	//6.打印系统信息
 	App_DispScr_SignOn();
 
@@ -104,11 +115,11 @@ int main(void)
 
 	OSTimeSet(0);	//ucosII的节拍计数器清0    节拍计数器是0-4294967295  
 	OSStart();		//启动ucosII内核    
-
+#endif
    return (0);
 }
 
-
+#if 1
 /**
  * 名    称：static  void App_TaskStart(void* p_arg)
  * 功    能：开始任务建立,指定LED 的闪烁,当做系统的呼吸灯
@@ -188,6 +199,22 @@ static  void App_TaskCreate(void)
 */
 static  void App_TaskLCD(void* p_arg)
 {
+	//ucGUI 支持
+#ifdef UC_GUI_SURRPORT
+
+	GUIDEMO_Intro();	  //显示第一个画面，GUI信息
+	GUIDEMO_DemoProgBar();//进度条
+	
+	//Load_Sys_ICO(); // add by transplant
+	while (1)
+	{
+		//Select_Menu();
+		//GUI_CURSOR_Show(); //显示光标
+		OSTimeDlyHMSM(0, 0, 10, 0);
+	}
+
+#else
+
 	Pant(0x1f, 0x00); //绿色 
 
 	LCD_CS(0);  //打开片选使能
@@ -202,6 +229,8 @@ static  void App_TaskLCD(void* p_arg)
 		OSTimeDlyHMSM(0, 0, 10, 0);
 	}
 
+#endif //UC_GUI_SURRPORT
+
 }
 
 /**
@@ -213,7 +242,11 @@ static  void App_TaskLCD(void* p_arg)
 * 调用方法：无
 */
 static  void App_TaskTouch(void* p_arg)
-{	
+{
+#ifdef UC_GUI_SURRPORT
+	;
+
+#else
 	u16  X_Addata, Y_Addata;
 	unsigned int lx, ly;
 	
@@ -256,6 +289,8 @@ static  void App_TaskTouch(void* p_arg)
 		OSTimeDlyHMSM(0, 0, 0, 10);
 		
 	}
+#endif//UC_GUI_SURRPORT
+
 }
 
 /**
@@ -397,4 +432,5 @@ void App_TCBInitHook(OS_TCB* ptcb)
 }
 #endif
 
+#endif
 #endif

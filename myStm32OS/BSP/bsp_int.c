@@ -32,10 +32,11 @@ http://item.taobao.com/auction/item_detail-db2-a29ff4d34829cbddeffe864fc1741d21.
 
 #define  BSP_INT_MODULE
 //#include <bsp.h>
-//#include  "..\BSP\bsp.h"
-#include "..\App\includes.h"
+#include  "..\BSP\bsp.h"
+//#include "..\App\includes.h"
 
-
+//#include "../uC-CPU/cpu_def.h"
+#include "../uC-CPU/ARM-Cortex-M3/cpu.h"
 /*
 *********************************************************************************************************
 *                                            LOCAL DEFINES
@@ -381,7 +382,7 @@ static  void  BSP_IntHandler (CPU_DATA  int_id)
 
 
     CPU_CRITICAL_ENTER();                                       /* Tell uC/OS-II that we are starting an ISR            */
-    OSIntNesting++;
+    //OSIntNesting++;
     CPU_CRITICAL_EXIT();
 
     if (int_id < BSP_INT_SRC_NBR) {
@@ -391,7 +392,7 @@ static  void  BSP_IntHandler (CPU_DATA  int_id)
         }
     }
 
-    OSIntExit();                                                /* Tell uC/OS-II that we are leaving the ISR            */
+    //OSIntExit();                                                /* Tell uC/OS-II that we are leaving the ISR            */
 }
 
 

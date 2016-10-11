@@ -7,7 +7,7 @@ void GPIO_Configuration(void);
 
 void NVIC_Configuration(void);
 
-CPU_INT32U  BSP_CPU_ClkFreq (void);
+//CPU_INT32U  BSP_CPU_ClkFreq (void);
 
 //INT32U  OS_CPU_SysTickClkFreq (void);
 

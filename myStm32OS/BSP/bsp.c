@@ -1,4 +1,10 @@
-#include "..\App\includes.h"
+//#include "..\App\includes.h"
+
+#include  "stm32f10x_conf.h"
+
+#include "stm32f10x_lib.h"
+#include  "../uC-CPU/ARM-Cortex-M3/cpu.h"
+#include  "../uCOS-II/Ports/os_cpu.h"
 
 /*
 *********************************************************************************************************
@@ -85,6 +91,7 @@ void RCC_Configuration(void)
   //RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 }
 
+#if 0
 //关闭调试接口，作GPIO使用
 void UnableJTAG(void)
 {
@@ -93,6 +100,7 @@ void UnableJTAG(void)
    AFIO->MAPR &= ~(7UL<<24); // clear used bit
    AFIO->MAPR |= (4UL<<24); // set used bits
 }
+#endif
 
 /*******************************************************************************
 * Function Name  : GPIO_Configuration
@@ -192,9 +200,10 @@ void BSP_Init(void)
   /* NVIC configuration */
   NVIC_Configuration();
   
-  USART1_InitConfig(57600);
+  //USART1_InitConfig(57600);
 }
 
+#if 1
 CPU_INT32U  BSP_CPU_ClkFreq (void)
 {
     RCC_ClocksTypeDef  rcc_clocks;
@@ -238,4 +247,7 @@ void assert_failed(u8* file, u32 line)
 #endif
 
 /******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
+
+#endif
+
 

@@ -42,11 +42,11 @@ extern "C" {
 */
 
 //#include <app_cfg.h>
-#include "..\..\APP\app_cfg.h"
+#include "../../APP/app_cfg.h"
 //#include <os_cfg.h>
-#include "..\..\APP\os_cfg.h"
+#include "../../APP/os_cfg.h"
 //#include <os_cpu.h>
-#include  "..\..\uCOS-II\Ports\os_cpu.h"
+#include  "../../uCOS-II/Ports/os_cpu.h"
 
 /*
 *********************************************************************************************************
