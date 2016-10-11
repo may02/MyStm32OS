@@ -35,18 +35,13 @@
 #include  <stdlib.h>
 #include  <stdarg.h>
 
-//#include  <ucos_ii.h>
-#include  "..\uCOS-II\Source\ucos_ii.h"
+#include  "../uCOS-II/Source/ucos_ii.h"
 
-//#include  <cpu.h>
-#include  "..\uC-CPU\ARM-Cortex-M3\cpu.h"
+#include  "../uC-CPU/ARM-Cortex-M3/cpu.h"
 
-//#include  <lib_def.h>
-//#include  <lib_mem.h>
-//#include  <lib_str.h>
-#include  "..\uC-LIB\lib_def.h"
-#include  "..\uC-LIB\lib_mem.h"
-#include  "..\uC-LIB\lib_str.h"
+#include  "../uC-LIB/lib_def.h"
+#include  "../uC-LIB/lib_mem.h"
+#include  "../uC-LIB/lib_str.h"
 
 #include  "stm32f10x_conf.h"
 #include  <stm32f10x_lib.h>
@@ -58,9 +53,9 @@
 #include  "config.h"
 #include  "app_cfg.h"
 
-#include  "..\usart\COM.h"
+#include  "../usart/COM.h"
 
-#include  "..\BSP\bsp.h"
+#include  "../BSP/bsp.h"
 
 #ifdef UC_GUI_SURRPORT
 

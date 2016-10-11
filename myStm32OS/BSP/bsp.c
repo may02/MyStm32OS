@@ -1,10 +1,6 @@
-//#include "..\App\includes.h"
 
-#include  "stm32f10x_conf.h"
-
-#include "stm32f10x_lib.h"
-#include  "../uC-CPU/ARM-Cortex-M3/cpu.h"
-#include  "../uCOS-II/Ports/os_cpu.h"
+#include "bsp.h"
+#include "../App/includes.h"
 
 /*
 *********************************************************************************************************
@@ -203,7 +199,7 @@ void BSP_Init(void)
   //USART1_InitConfig(57600);
 }
 
-#if 1
+
 CPU_INT32U  BSP_CPU_ClkFreq (void)
 {
     RCC_ClocksTypeDef  rcc_clocks;
@@ -248,6 +244,6 @@ void assert_failed(u8* file, u32 line)
 
 /******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/
 
-#endif
+
 
 

@@ -1,15 +1,18 @@
 #if !defined( _BSP_H )
 #define _BSP_H
 
+#include  "../uC-CPU/ARM-Cortex-M3/cpu.h"
+#include  "../uCOS-II/Ports/os_cpu.h"
+
 void RCC_Configuration(void);
 
 void GPIO_Configuration(void);
 
 void NVIC_Configuration(void);
 
-//CPU_INT32U  BSP_CPU_ClkFreq (void);
+CPU_INT32U  BSP_CPU_ClkFreq (void);
 
-//INT32U  OS_CPU_SysTickClkFreq (void);
+INT32U  OS_CPU_SysTickClkFreq (void);
 
 void BSP_Init(void);
 
