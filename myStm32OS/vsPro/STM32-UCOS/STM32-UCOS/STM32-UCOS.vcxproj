@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\APP\app.c" />
+    <ClCompile Include="..\..\..\APP\app_deal.c" />
     <ClCompile Include="..\..\..\BSP\bsp.c" />
     <ClCompile Include="..\..\..\BSP\bsp_int.c" />
     <ClCompile Include="..\..\..\TFT\drv_ucgui.c" />
@@ -174,12 +175,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\APP\app_cfg.h" />
+    <ClInclude Include="..\..\..\APP\app_deal.h" />
     <ClInclude Include="..\..\..\APP\BinType.h" />
     <ClInclude Include="..\..\..\APP\config.h" />
     <ClInclude Include="..\..\..\APP\includes.h" />
     <ClInclude Include="..\..\..\APP\MyType.h" />
     <ClInclude Include="..\..\..\APP\os_cfg.h" />
     <ClInclude Include="..\..\..\APP\STM32_Reg.h" />
+    <ClInclude Include="..\..\..\APP\SysIconBMP.h" />
     <ClInclude Include="..\..\..\BSP\bsp.h" />
     <ClInclude Include="..\..\..\GUIinc\BUTTON.h" />
     <ClInclude Include="..\..\..\GUIinc\BUTTON_Private.h" />

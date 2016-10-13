@@ -211,6 +211,9 @@
     <ClCompile Include="..\..\..\TFT\drv_ucgui.c">
       <Filter>TFT</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\APP\app_deal.c">
+      <Filter>APP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\APP\app_cfg.h">
@@ -491,6 +494,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\TFT\ili9486_driver.h">
       <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\app_deal.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\APP\SysIconBMP.h">
+      <Filter>APP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
