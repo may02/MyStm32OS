@@ -122,6 +122,8 @@
     <ClCompile Include="..\..\..\APP\app.c" />
     <ClCompile Include="..\..\..\BSP\bsp.c" />
     <ClCompile Include="..\..\..\BSP\bsp_int.c" />
+    <ClCompile Include="..\..\..\TFT\drv_ucgui.c" />
+    <ClCompile Include="..\..\..\TFT\ili9486_driver.c" />
     <ClCompile Include="..\..\..\TFT\LCD_driver.c" />
     <ClCompile Include="..\..\..\Touch\touch.c" />
     <ClCompile Include="..\..\..\uC-CPU\ARM-Cortex-M3\cpu_c.c" />
@@ -247,6 +249,7 @@
     <ClInclude Include="..\..\..\GUIinc\WM_Intern_ConfDep.h" />
     <ClInclude Include="..\..\..\TFT\char.h" />
     <ClInclude Include="..\..\..\TFT\chinese.h" />
+    <ClInclude Include="..\..\..\TFT\ili9486_driver.h" />
     <ClInclude Include="..\..\..\TFT\LCD_driver.h" />
     <ClInclude Include="..\..\..\TFT\picture.h" />
     <ClInclude Include="..\..\..\Touch\touch.h" />

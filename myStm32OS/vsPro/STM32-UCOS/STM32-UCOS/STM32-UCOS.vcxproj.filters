@@ -205,6 +205,12 @@
     <ClCompile Include="..\..\..\uCOS-IIGUI_X\GUI_X_uCOS.c">
       <Filter>uCOS-IIGUI_X</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\TFT\ili9486_driver.c">
+      <Filter>TFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\TFT\drv_ucgui.c">
+      <Filter>TFT</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\APP\app_cfg.h">
@@ -482,6 +488,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\uCGUIDemo\Map.h">
       <Filter>uCGUIDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\TFT\ili9486_driver.h">
+      <Filter>TFT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
