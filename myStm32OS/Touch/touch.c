@@ -2,6 +2,8 @@
 #include "stm32f10x_lib.h"
 #include "touch.h"
 
+#ifndef UC_GUI_SURRPORT
+
 /**
 * 自定义延时,不用ucOS 的延时,防止任务切换
 */
@@ -216,3 +218,5 @@ unsigned char XPT2046_ReadEx(unsigned int * pX, unsigned int * pY)
 		return 0;
 
 }
+
+#endif//UC_GUI_SURRPORT

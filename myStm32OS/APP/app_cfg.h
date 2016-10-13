@@ -78,8 +78,9 @@
 #define  LIB_STR_CFG_FP_EN                      DEF_DISABLED
 
 
-//#define UC_GUI_SURRPORT
+#define UC_GUI_SURRPORT
 
+//#define UC_GUI_TOUCH_SURRPORT
 
 
 #define __DEBUG__

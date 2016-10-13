@@ -2,6 +2,11 @@
 #ifndef __TOUCH_H__
 #define __TOUCH_H__
 
+#include "../APP/app_cfg.h"
+
+
+#ifndef UC_GUI_SURRPORT
+
 #define u16   unsigned int
 #define u8    unsigned char
 
@@ -59,7 +64,7 @@ unsigned char XPT2046_ReadEx(unsigned int * pX, unsigned int * pY);
 
 unsigned char Read_ADS2(u16 *x,u16 *y);//2次读取ADS7846,连续读取2次有效的AD值,且这两次的偏差不能超过ERR_RANGE
 
-
+#endif//UC_GUI_SURRPORT
 
 
 #endif//__TOUCH_H__

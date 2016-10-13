@@ -6,126 +6,133 @@
 unsigned int colors[]={0xf800,0x07e0,0x001f,0xffe0,0x0000,0x07ff,0xf81f,0xffff};  //颜色数据 
 
  
+//#ifndef UC_GUI_SURRPORT
+
+static void Drv_delayms(int count)  // /* X1ms */
+{
+	int i, j;
+	for (i = 0; i<count; i++)
+		for (j = 0; j<5000; j++);
+}
 
 
-
-void LCD_Init(void)
+void Drv_LCD_Init(void)
 {
 
     LCD_RST(1);
-    delayms(50);	
+	Drv_delayms(50);
 	LCD_RST(0);
-	delayms(50);
+	Drv_delayms(50);
 	LCD_RST(1);
-	delayms(50);
+	Drv_delayms(50);
 
 	LCD_CS(0);  //打开片选使能
 
 
-	LCD_Write_COM(0x00,0xF1);
-    LCD_Write_DATA(0x00,0x36);
-    LCD_Write_DATA(0x00,0x04);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x3C);
-    LCD_Write_DATA(0x00,0x0F);
-    LCD_Write_DATA(0x00,0x8F);
+	Drv_LCD_Write_COM(0x00,0xF1);
+    Drv_LCD_Write_DATA(0x00,0x36);
+    Drv_LCD_Write_DATA(0x00,0x04);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x3C);
+    Drv_LCD_Write_DATA(0x00,0x0F);
+    Drv_LCD_Write_DATA(0x00,0x8F);
 
-	LCD_Write_COM(0x00,0xF2);
-    LCD_Write_DATA(0x00,0x18);
-    LCD_Write_DATA(0x00,0xA3);
-    LCD_Write_DATA(0x00,0x12);
-    LCD_Write_DATA(0x00,0x02);
-    LCD_Write_DATA(0x00,0xB2);//32
-    LCD_Write_DATA(0x00,0x12);
-    LCD_Write_DATA(0x00,0xFF);
-    LCD_Write_DATA(0x00,0x10);
-    LCD_Write_DATA(0x00,0x00);
+	Drv_LCD_Write_COM(0x00,0xF2);
+    Drv_LCD_Write_DATA(0x00,0x18);
+    Drv_LCD_Write_DATA(0x00,0xA3);
+    Drv_LCD_Write_DATA(0x00,0x12);
+    Drv_LCD_Write_DATA(0x00,0x02);
+    Drv_LCD_Write_DATA(0x00,0xB2);//32
+    Drv_LCD_Write_DATA(0x00,0x12);
+    Drv_LCD_Write_DATA(0x00,0xFF);
+    Drv_LCD_Write_DATA(0x00,0x10);
+    Drv_LCD_Write_DATA(0x00,0x00);
 
-	LCD_Write_COM(0x00,0xF8);
-    LCD_Write_DATA(0x00,0x21);
-    LCD_Write_DATA(0x00,0x04);
-
-
-	LCD_Write_COM(0x00,0xF9);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x08);
+	Drv_LCD_Write_COM(0x00,0xF8);
+    Drv_LCD_Write_DATA(0x00,0x21);
+    Drv_LCD_Write_DATA(0x00,0x04);
 
 
-	LCD_Write_COM(0x00,0xC0);
-    LCD_Write_DATA(0x00,0x13);
-    LCD_Write_DATA(0x00,0x10);
+	Drv_LCD_Write_COM(0x00,0xF9);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x08);
 
-	LCD_Write_COM(0x00,0xC1);
-    LCD_Write_DATA(0x00,0x43);
-    LCD_Write_DATA(0x00,0x00);
 
-	LCD_Write_COM(0x00,0xC2);
-    LCD_Write_DATA(0x00,0x22);
+	Drv_LCD_Write_COM(0x00,0xC0);
+    Drv_LCD_Write_DATA(0x00,0x13);
+    Drv_LCD_Write_DATA(0x00,0x10);
 
-	LCD_Write_COM(0x00,0xC5);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x4D);
-    LCD_Write_DATA(0x00,0x80);
+	Drv_LCD_Write_COM(0x00,0xC1);
+    Drv_LCD_Write_DATA(0x00,0x43);
+    Drv_LCD_Write_DATA(0x00,0x00);
 
-	LCD_Write_COM(0x00,0xB1);
-    LCD_Write_DATA(0x00,0xC0);
-    LCD_Write_DATA(0x00,0x11);
+	Drv_LCD_Write_COM(0x00,0xC2);
+    Drv_LCD_Write_DATA(0x00,0x22);
 
-	LCD_Write_COM(0x00,0xB4);
-    LCD_Write_DATA(0x00,0x01);//02,03
+	Drv_LCD_Write_COM(0x00,0xC5);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x4D);
+    Drv_LCD_Write_DATA(0x00,0x80);
 
-	LCD_Write_COM(0x00,0xB6);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x42);
-    LCD_Write_DATA(0x00,0x3B);
+	Drv_LCD_Write_COM(0x00,0xB1);
+    Drv_LCD_Write_DATA(0x00,0xC0);
+    Drv_LCD_Write_DATA(0x00,0x11);
+
+	Drv_LCD_Write_COM(0x00,0xB4);
+    Drv_LCD_Write_DATA(0x00,0x01);//02,03
+
+	Drv_LCD_Write_COM(0x00,0xB6);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x42);
+    Drv_LCD_Write_DATA(0x00,0x3B);
 
 //WriteComm(0xB7);
 //WriteData(0x07);
 
-	LCD_Write_COM(0x00,0xE0);
-    LCD_Write_DATA(0x00,0x0F);
-    LCD_Write_DATA(0x00,0x1B);
-    LCD_Write_DATA(0x00,0x19);
-    LCD_Write_DATA(0x00,0x0B);
-    LCD_Write_DATA(0x00,0x0F);
-    LCD_Write_DATA(0x00,0x08);
-    LCD_Write_DATA(0x00,0x46);
-    LCD_Write_DATA(0x00,0xB9);
-    LCD_Write_DATA(0x00,0x33);
-    LCD_Write_DATA(0x00,0x08);
-    LCD_Write_DATA(0x00,0x03);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x00);
-    LCD_Write_DATA(0x00,0x00);
+	Drv_LCD_Write_COM(0x00,0xE0);
+    Drv_LCD_Write_DATA(0x00,0x0F);
+    Drv_LCD_Write_DATA(0x00,0x1B);
+    Drv_LCD_Write_DATA(0x00,0x19);
+    Drv_LCD_Write_DATA(0x00,0x0B);
+    Drv_LCD_Write_DATA(0x00,0x0F);
+    Drv_LCD_Write_DATA(0x00,0x08);
+    Drv_LCD_Write_DATA(0x00,0x46);
+    Drv_LCD_Write_DATA(0x00,0xB9);
+    Drv_LCD_Write_DATA(0x00,0x33);
+    Drv_LCD_Write_DATA(0x00,0x08);
+    Drv_LCD_Write_DATA(0x00,0x03);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x00);
+    Drv_LCD_Write_DATA(0x00,0x00);
 
-	LCD_Write_COM(0x00,0xE1);
-    LCD_Write_DATA(0x00,0x0F);
-    LCD_Write_DATA(0x00,0x3F);
-    LCD_Write_DATA(0x00,0x3F);
-    LCD_Write_DATA(0x00,0x0F);
-    LCD_Write_DATA(0x00,0x1C);
-    LCD_Write_DATA(0x00,0x07);
-    LCD_Write_DATA(0x00,0x4C);
-    LCD_Write_DATA(0x00,0x74);
-    LCD_Write_DATA(0x00,0x38);
-    LCD_Write_DATA(0x00,0x07);
-    LCD_Write_DATA(0x00,0x10);
-    LCD_Write_DATA(0x00,0x04);
-    LCD_Write_DATA(0x00,0x26);
-    LCD_Write_DATA(0x00,0x24);
-    LCD_Write_DATA(0x00,0x00);
+	Drv_LCD_Write_COM(0x00,0xE1);
+    Drv_LCD_Write_DATA(0x00,0x0F);
+    Drv_LCD_Write_DATA(0x00,0x3F);
+    Drv_LCD_Write_DATA(0x00,0x3F);
+    Drv_LCD_Write_DATA(0x00,0x0F);
+    Drv_LCD_Write_DATA(0x00,0x1C);
+    Drv_LCD_Write_DATA(0x00,0x07);
+    Drv_LCD_Write_DATA(0x00,0x4C);
+    Drv_LCD_Write_DATA(0x00,0x74);
+    Drv_LCD_Write_DATA(0x00,0x38);
+    Drv_LCD_Write_DATA(0x00,0x07);
+    Drv_LCD_Write_DATA(0x00,0x10);
+    Drv_LCD_Write_DATA(0x00,0x04);
+    Drv_LCD_Write_DATA(0x00,0x26);
+    Drv_LCD_Write_DATA(0x00,0x24);
+    Drv_LCD_Write_DATA(0x00,0x00);
 
-	LCD_Write_COM(0x00,0x36);
-    LCD_Write_DATA(0x00,0x08);//08
+	Drv_LCD_Write_COM(0x00,0x36);
+    Drv_LCD_Write_DATA(0x00,0x08);//08
 
-	LCD_Write_COM(0x00,0x3A);
-    LCD_Write_DATA(0x00,0x66);//66
+	Drv_LCD_Write_COM(0x00,0x3A);
+    Drv_LCD_Write_DATA(0x00,0x66);//66
 
-	LCD_Write_COM(0x00,0x20);
-	LCD_Write_COM(0x00,0x11);
-    delayms(120);
-	LCD_Write_COM(0x00,0x29);
+	Drv_LCD_Write_COM(0x00,0x20);
+	Drv_LCD_Write_COM(0x00,0x11);
+    Drv_delayms(120);
+	Drv_LCD_Write_COM(0x00,0x29);
 
 
 	LCD_CS(1);  //关闭片选使能
@@ -134,17 +141,10 @@ void LCD_Init(void)
 
 
 
-static void delayms(int count)  // /* X1ms */
-{
-        int i,j;
-        for(i=0;i<count;i++)
-                for(j=0;j<5000;j++);
-}
 
 
 
-
-void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
+void Drv_LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
 {
     GPIOA->BSRR = VH & 0x00ff;   	 //高位P1口
     GPIOA->BRR  = (~VH) & 0x00ff;
@@ -156,57 +156,55 @@ void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
 
 
 
-void LCD_Write_COM(char VH,char VL)	 //发送命令
+void Drv_LCD_Write_COM(char VH,char VL)	 //发送命令
 {	
     LCD_RS(0);
-	LCD_Writ_Bus(VH,VL);
+	Drv_LCD_Writ_Bus(VH,VL);
 }
 
 
-void LCD_Write_DATA(char VH,char VL)	//发送数据
+void Drv_LCD_Write_DATA(char VH,char VL)	//发送数据
 {
     LCD_RS(1);
-	LCD_Writ_Bus(VH,VL);
+	Drv_LCD_Writ_Bus(VH,VL);
 }
 
 
 
-void Pant(char VH,char VL)
+void Drv_Pant(char VH,char VL)
 {
 	int i,j;
 	LCD_CS(0);  //打开片选使能
-	Address_set(0,0,319,479);
+	Drv_Address_set(0,0,319,479);
     for(i=0;i<480;i++)
-	 {
-	  for (j=0;j<320;j++)
+	{
+		for (j=0;j<320;j++)
 	   	{
-        	 LCD_Write_DATA(VH,VL);
+			Drv_LCD_Write_DATA(VH,VL);
 	    }
 
-	  }
+	 }
      LCD_CS(1);  //关闭片选使能
 }	
 
-void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2)
-{
-	
-	
-    LCD_Write_COM(0x00,0x2a);  
-	LCD_Write_DATA(0x00,x1 >> 8);	 
-	LCD_Write_DATA(0x00,x1);
-	LCD_Write_DATA(0x00,x2 >> 8);
-	LCD_Write_DATA(0x00,x2);
+void Drv_Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2)
+{		
+    Drv_LCD_Write_COM(0x00,0x2a);  
+	Drv_LCD_Write_DATA(0x00,x1 >> 8);	 
+	Drv_LCD_Write_DATA(0x00,x1);
+	Drv_LCD_Write_DATA(0x00,x2 >> 8);
+	Drv_LCD_Write_DATA(0x00,x2);
 
-    LCD_Write_COM(0x00,0x2b);  
-	LCD_Write_DATA(0x00,y1 >> 8);
-	LCD_Write_DATA(0x00,y1);
-	LCD_Write_DATA(0x00,y2 >> 8);
-	LCD_Write_DATA(0x00,y2);
+    Drv_LCD_Write_COM(0x00,0x2b);  
+	Drv_LCD_Write_DATA(0x00,y1 >> 8);
+	Drv_LCD_Write_DATA(0x00,y1);
+	Drv_LCD_Write_DATA(0x00,y2 >> 8);
+	Drv_LCD_Write_DATA(0x00,y2);
 
-    LCD_Write_COM(0x00,0x3A);    // 16/18 bits
-	LCD_Write_DATA(0x00,0x55);
+    Drv_LCD_Write_COM(0x00,0x3A);    // 16/18 bits
+	Drv_LCD_Write_DATA(0x00,0x55);
 
-    LCD_Write_COM(0x00,0x2c);					 
+	Drv_LCD_Write_COM(0x00,0x2c);
 }
 
 
@@ -216,7 +214,7 @@ void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2
   写汉字子函数
 
 **********************************************************/
-void ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c)
+void Drv_ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c)
 {
    int e=0,i,j;
    int  ed;
@@ -254,7 +252,7 @@ void ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c)
    
    pchar=pfont + (nbytes*(c-1));
 
-   Address_set(x,  y, x+nrows,y+ncols);
+   Drv_Address_set(x,  y, x+nrows,y+ncols);
    
    for(i=0;i<nbytes;i++)
    {
@@ -267,18 +265,18 @@ void ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c)
        e=4;
 	 }
 	 else
-	 e=8;
+		e=8;
      
      for(j=0;j<e;j++)
      {// unsigned char temp;
 	  if((ed>>j)&0x01)
       { 
        	//temp = 	For_color&0x00ff
-	   LCD_Write_DATA(For_color>>8 , For_color  );  //textcolor
+		  Drv_LCD_Write_DATA(For_color>>8 , For_color  );  //textcolor
 	  }
      else
      {
-       LCD_Write_DATA( Bk_color>>8 ,  Bk_color);  //backcolor
+		 Drv_LCD_Write_DATA( Bk_color>>8 ,  Bk_color);  //backcolor
 	 }
 	}
   }
@@ -291,7 +289,7 @@ void ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c)
   字符显示子函数
 
 **********************************************************/
-void LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch)
+void Drv_LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch)
 {       
    unsigned char temp , Bytes;
    unsigned char pos,t;
@@ -307,7 +305,7 @@ void LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch)
    if(x>(LCD_SIZE_X-CHAR_W)||y>(LCD_SIZE_Y-CHAR_H))
    return;
    
-   Address_set(x, y, x+CHAR_W-1, y+CHAR_H-1);
+   Drv_Address_set(x, y, x+CHAR_W-1, y+CHAR_H-1);
    ch = ch-32;                       //按照ASCII编码顺序的到相应字母的编码
    Bytes = (CHAR_W*CHAR_H)/8;
    for(pos=0;pos<Bytes;pos++)  //CHAR_H 	(CHAR_W*CHAR_H)/8
@@ -320,9 +318,9 @@ void LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch)
       for(t=0;t<8;t++) //CHAR_W
       {                 
 	    if(temp&0x80)
-	    LCD_Write_DATA(For_color>>8 , For_color  );  //textcolor
+			Drv_LCD_Write_DATA(For_color>>8 , For_color  );  //textcolor
 	    else 
-	    LCD_Write_DATA(Bk_color>>8 , Bk_color );  //backcolor
+			Drv_LCD_Write_DATA(Bk_color>>8 , Bk_color );  //backcolor
         temp<<=1; 
       }
 	  
@@ -337,12 +335,44 @@ void LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch)
 
 **********************************************************/
 
-void LCD_ShowString(uint x,uint y,uint For_color,uint Bk_color,char *p)
+void Drv_LCD_ShowString(uint x,uint y,uint For_color,uint Bk_color,char *p)
 {         
    while(*p!='\0')
    {       
-     LCD_ShowChar(x,y,For_color,Bk_color,*p);
+	   Drv_LCD_ShowChar(x,y,For_color,Bk_color,*p);
     // x+=8;
 	 x+=16;
      p++;
-   } }
+   }
+}
+
+
+
+/**
+ * 功能: 在坐标x,y 处设置颜色 color
+*/
+void Drv_LCD_SetPixel(uint x, uint y, uint color)
+{
+	Drv_Address_set(x,y,x+1,y+1);
+
+	Drv_LCD_Write_DATA(color >> 8, color);  
+}
+
+/**
+ * 功能: 获取坐标 x,y 处得颜色值
+*/
+uint Drv_LCD_GetPixel(uint x, uint y)
+{
+	return 0;
+}
+
+
+
+
+
+
+
+
+//#endif//UC_GUI_SURRPORT
+
+

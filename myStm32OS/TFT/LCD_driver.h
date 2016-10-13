@@ -1,3 +1,10 @@
+#ifndef __LCD_DRIVER_H__
+#define __LCD_DRIVER_H__
+
+#include "../APP/app_cfg.h"
+
+//#ifndef UC_GUI_SURRPORT
+
 #define uint unsigned int
 #define uchar unsinged char
 
@@ -23,19 +30,26 @@
 
 extern  uint colors[];
 
-void LCD_Init(void);
-void LCD_ShowString(uint x,uint y,uint For_color,uint Bk_color,char *p);
-void LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch);
-void ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c);
-static void delayms(int count) ;
-void LCD_Write_DATA18(char x,char y ,char VH,char VL);
-void LCD_Writ_Bus(char VH,char VL);
-void LCD_Writ_Bus(char VH,char VL);
-void LCD_Write_COM(char VH,char VL);
-void LCD_Write_DATA(char VH,char VL);
-void LCD_Write_COLOR(char V1,char V2,char V3);
-void Pant(char VH,char VL);
-void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2);
+void Drv_LCD_Init(void);
+void Drv_LCD_ShowString(uint x,uint y,uint For_color,uint Bk_color,char *p);
+void Drv_LCD_ShowChar(uint x,uint y,uint For_color,uint Bk_color, char ch);
+void Drv_ChineseChar(uint x,uint y,int size,uint For_color,uint Bk_color ,char c);
+static void Drv_delayms(int count) ;
+void Drv_LCD_Write_DATA18(char x,char y ,char VH,char VL);
+void Drv_LCD_Writ_Bus(char VH,char VL);
+void Drv_LCD_Writ_Bus(char VH,char VL);
+void Drv_LCD_Write_COM(char VH,char VL);
+void Drv_LCD_Write_DATA(char VH,char VL);
+void Drv_LCD_Write_COLOR(char V1,char V2,char V3);
+void Drv_Pant(char VH,char VL);
+void Drv_Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2);
 
 
+void Drv_LCD_SetPixel(uint x, uint y, uint color);
+uint Drv_LCD_GetPixel(uint x, uint y);
+
+//#endif//UC_GUI_SURRPORT
+
+
+#endif//__LCD_DRIVER_H__
 

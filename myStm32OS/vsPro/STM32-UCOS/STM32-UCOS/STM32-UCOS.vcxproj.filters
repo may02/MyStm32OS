@@ -41,6 +41,18 @@
     <Filter Include="usart">
       <UniqueIdentifier>{73bf85f0-518b-4aa2-a9cf-a1a8e8e6b1cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUIinc">
+      <UniqueIdentifier>{ffd533b4-915e-40b7-9f31-d1e2800290dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCGUIConfig">
+      <UniqueIdentifier>{8c3b7f09-4c49-4cca-99b5-7588fda4731a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCGUIDemo">
+      <UniqueIdentifier>{75b0eae9-05c1-48ca-8fc1-a73b21c85e84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uCOS-IIGUI_X">
+      <UniqueIdentifier>{65605236-2a64-446e-898c-dc0adc30d380}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\APP\app.c">
@@ -106,6 +118,93 @@
     <ClCompile Include="..\..\..\TFT\LCD_driver.c">
       <Filter>TFT</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\dashboard.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Automotive.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Bitmap.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Bitmap4bpp.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Circle.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_ColorBar.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_ColorList.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Cursor.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Dialog.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Font.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_FrameWin.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Graph.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_HardwareInfo.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Intro.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_LUT.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_MemDevB.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Messagebox.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Navi.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Polygon.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_ProgBar.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Speed.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_Touch.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\GUIDEMO_WM.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\MicriumLogo.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\MicriumLogoWRed.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCGUIDemo\touch_sample.c">
+      <Filter>uCGUIDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-IIGUI_X\GUI_X_Touch.c">
+      <Filter>uCOS-IIGUI_X</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\uCOS-IIGUI_X\GUI_X_uCOS.c">
+      <Filter>uCOS-IIGUI_X</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\APP\app_cfg.h">
@@ -170,6 +269,219 @@
     </ClInclude>
     <ClInclude Include="..\..\..\TFT\picture.h">
       <Filter>TFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\BUTTON.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\BUTTON_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\CHECKBOX.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\CHECKBOX_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\DIALOG.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\DIALOG_Intern.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\DROPDOWN.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\DROPDOWN_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\EDIT.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\EDIT_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\FRAMEWIN.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\FRAMEWIN_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_ARRAY.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_ConfDefaults.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_FontIntern.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_HOOK.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_Protected.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_VNC.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUI_X.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUIDebug.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUIType.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\GUIVersion.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\HEADER.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\HEADER_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jconfig.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jdct.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jdhuff.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jerror.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jinclude.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jmemsys.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jmorecfg.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jpegint.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jpeglib.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\jversion.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCD.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCD_ConfDefaults.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCD_IncludeDriver.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCD_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCD_Protected.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LCDSIM.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LISTBOX.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LISTBOX_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LISTVIEW.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\LISTVIEW_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MENU.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MENU_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MESSAGEBOX.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MULTIEDIT.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MULTIPAGE.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\MULTIPAGE_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\PROGBAR.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\RADIO.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\RADIO_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\SCROLLBAR.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\SCROLLBAR_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\SLIDER.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\TEXT.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\TEXT_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WIDGET.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WINDOW_Private.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WM.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WM_GUI.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WM_Intern.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\GUIinc\WM_Intern_ConfDep.h">
+      <Filter>GUIinc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCGUIConfig\GUIConf.h">
+      <Filter>uCGUIConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCGUIConfig\GUITouchConf.h">
+      <Filter>uCGUIConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCGUIConfig\LCDConf.h">
+      <Filter>uCGUIConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCGUIDemo\GUIDEMO.h">
+      <Filter>uCGUIDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uCGUIDemo\Map.h">
+      <Filter>uCGUIDemo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
