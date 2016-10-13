@@ -39,11 +39,19 @@ void ili9486_Initializtion(void);
  * 画点
 */
 void ili9486_SetPixel(uint x, uint y, uint color);
-
 uint ili9486_GetPixel(uint x, uint y);
 
+/**
+ * 画线
+*/
+void ili9486_DrawHLine(uint x0 , uint Ypos ,uint x1 , uint color);
+void ili9486_DrawVLine(uint Xpos, uint y0, uint y1 , uint color);
 
 
+/**
+ * 画图
+*/
+void ili9486_DrawBitmap(uint x0, uint y0, uint xSize, uint ySize, uchar * pImage);
 
 
 /**
@@ -94,6 +102,8 @@ static void ili9486_GRAMRead(void);
 /**
  * 指定图片显示位置
 */
+static void ili9486_SetDispArea(uint Xpos1,uint Ypos1,uint Xpos2,uint Ypos2);
+
 static void ili9486_SetCursor(uint Xpos, uint Ypos);
 
 static void ili9486_Delayms(uint nCount);

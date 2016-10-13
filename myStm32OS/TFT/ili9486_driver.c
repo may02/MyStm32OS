@@ -84,6 +84,26 @@ static void ili9486_GRAMRead(void)
 /**
  * 指定图片显示位置
 */
+static void ili9486_SetDispArea(uint Xpos1, uint Ypos1, uint Xpos2, uint Ypos2)
+{
+
+	ili9486_WriteReg(0x002a);
+	ili9486_WriteData(Xpos1 >> 8);	   //x1高位
+	ili9486_WriteData(Xpos1 & 0x00ff);  //x1低位
+	ili9486_WriteData(Xpos2 >> 8);	   //x2高位
+	ili9486_WriteData(Xpos2 & 0x00ff);  //x2低位
+
+	ili9486_WriteReg(0x002b);
+	ili9486_WriteData(Ypos1 >> 8);       //y1高位        
+	ili9486_WriteData(Ypos1 & 0x00ff);   //y1低位
+	ili9486_WriteData(Ypos2 >> 8);       //y2高位        
+	ili9486_WriteData(Ypos2 & 0x00ff);   //y2低位
+
+	ili9486_WriteReg(0x003A);    // 16/18 bits
+	ili9486_WriteData(0x0055);
+
+}
+
 static void ili9486_SetCursor(uint Xpos, uint Ypos)
 {
 	
@@ -237,5 +257,68 @@ uint ili9486_GetPixel(uint x, uint y)
 	return ili9486_ReadBus();	
 }
 
+/**
+ * 横线
+*/
+void ili9486_DrawHLine(uint x0, uint Ypos, uint x1, uint color)
+{
+	u16 index = 0;
+	if (x0 > x1)
+	{
+		ili9486_SetCursor(x1, Ypos);
+		
+		ili9486_GRAMWrite();
+		for (index = x1; index < x0; index++) 
+			ili9486_WriteData(color);
+	}
+	else if (x1 >= x0)
+	{
+		ili9486_SetCursor(x0, Ypos);
+
+		ili9486_GRAMWrite();
+		for (index = x0; index < x1; index++)
+			ili9486_WriteData(color);
+
+	}
+}
+
+/**
+ * 竖线  ????
+*/
+void ili9486_DrawVLine(uint Xpos, uint y0, uint y1, uint color)
+{
+	u16 index = 0;
+	if (y0 > y1)
+	{
+		ili9486_SetCursor(Xpos,y1);
+
+		ili9486_GRAMWrite();
+		for (index = y1; index < y0; index++)
+			ili9486_WriteData(color);
+	}
+	else if (y1 >= y0)
+	{
+		ili9486_SetCursor(Xpos ,y0);
+
+		ili9486_GRAMWrite();
+		for (index = y0; index < y1; index++)
+			ili9486_WriteData(color);
+
+	}
+}
 
 
+void ili9486_DrawBitmap(uint x0, uint y0, uint xSize, uint ySize, uchar * pImage)
+{
+	uint j = 0 , Image = 0;
+	
+	ili9486_SetDispArea(x0, y0, x0 + xSize , y0 + ySize);
+	
+	ili9486_GRAMWrite();
+	for (j = 0; j<33496 / 2; j++)	   //显示 60552个像素点
+	{
+		Image = pImage[j * 2 + 1] << 8 | pImage[j * 2];
+		ili9486_WriteData(Image);
+		
+	}
+}
